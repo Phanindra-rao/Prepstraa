@@ -1,22 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
 import Home from './components/Home';
-import Footer from './components/Footer';
-import Jobs from './components/Jobs';
-import JobDetails from './components/JobDetails';
-import EmployerDashboard from './components/EmployerDashboard';
-import Login from './components/Login';
-import AdminLogin from './components/AdminLogin';
+import AllNotes from './components/AllNotes';
+import BrowseNotes from './components/BrowseNotes';
+import CPage from './components/componentsallnotes/CPage';
+import CSharpPage from './components/componentsallnotes/CSharpPage';
+import PythonPage from './components/componentsallnotes/PythonPage';
 import AdminUpload from './components/AdminUpload';
+import AdminLogin from './components/AdminLogin';
 import AdminManageUploads from './components/AdminManageUploads';
 import ProtectedRoute from './components/ProtectedRoute';
-import InterviewUpload from './components/InterviewUpload';
-import AddNotes from './components/AddNotes';
-import BrowseNotes from './components/BrowseNotes';
+import Jobs from './components/Jobs';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import PostInterviewQuestions from './components/PostInterviewQuestions';
 import ExploreStories from './components/ExploreStories';
-import Solutions from './components/Solutions';
-
+import AddNotes from './components/AddNotes';
+import Solutions from './components/Solutions'; 
 function App() {
   return (
     <Router>
@@ -25,10 +25,16 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/all-notes" element={<AllNotes />} />
+            <Route path="/solutions" element={<Solutions />} />
+            <Route path="/browse-notes" element={<BrowseNotes />} />
+            <Route path="/post-interview" element={<PostInterviewQuestions />} />
+            <Route path="/stories" element={<ExploreStories />} />
+            <Route path="/add-notes" element={<AddNotes />} />
+            <Route path="/c" element={<CPage />} />
+            <Route path="/csharp" element={<CSharpPage />} />
+            <Route path="/python" element={<PythonPage />} />
             <Route path="/jobs" element={<Jobs />} />
-            <Route path="/job/:jobId" element={<JobDetails />} />
-            <Route path="/employer-dashboard" element={<EmployerDashboard />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/admin-login" element={<AdminLogin />} />
             <Route
               path="/admin-upload"
@@ -39,18 +45,13 @@ function App() {
               }
             />
             <Route
-              path="/admin-manage"
+              path="/admin-manage-uploads"
               element={
                 <ProtectedRoute>
                   <AdminManageUploads />
                 </ProtectedRoute>
               }
             />
-            <Route path="/interview-upload" element={<InterviewUpload />} />
-            <Route path="/add-notes" element={<AddNotes />} />
-            <Route path="/browse-notes" element={<BrowseNotes />} />
-            <Route path="/explore-stories" element={<ExploreStories />} />
-            <Route path="/solutions" element={<Solutions />} />
           </Routes>
         </main>
         <Footer />
